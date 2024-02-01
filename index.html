@@ -65,6 +65,12 @@
     }
 
     async function getUserProfile() {
+      const profile = await liff.gatProfile()
+      document.getElementById("pictureUrl").src = profile.pictureUrl
+      document.getElementById("userId"). append(profile.userId)
+      document.getElementById("statusMessage"). append(profile.statusMessage)
+      document.getElementById("displayName"). append(profile.displayName)
+      document.getElementById("decodedIDToken"). append(liff.getDecodedIDToken().email)
     }
 
     function getEnvironment() {
@@ -85,7 +91,7 @@
     async function main() {
       await liff.init({ liffId: "2003131290-na4Nj18N" })
       getEnvironment()
-      // getUserProfile()
+      getUserProfile()
       // getContext()
       // getFriendship()
       // createUniversalLink()
